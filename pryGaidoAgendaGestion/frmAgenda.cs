@@ -8,9 +8,11 @@ namespace pryGaidoAgendaGestion
         }
         string vContacto = "";
         string vNumero = "";
-        private void lstContacto_TextChanged(object sender, EventArgs e)
+        int vContador = 0;
+        DateTime vFecha = DateTime.Now;
+        private void txtContacto_TextChanged(object sender, EventArgs e)
         {
-            if (lstContacto.Text != "")
+            if (txtContacto.Text != "")
             {
                 mtbNumero.Enabled = true;
             }
@@ -33,15 +35,22 @@ namespace pryGaidoAgendaGestion
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            vContacto = lstContacto.Text;
+            vContacto = txtContacto.Text;
             vNumero = mtbNumero.Text;
 
-            lstContacto.Items.Add("xx");
+            lstResultado.Items.Add("Contacto:" + vContacto + "Numero:" + vNumero);
+            txtContacto.Text = "";
+            mtbNumero.Text = "";
+            vContador = vContador + 1;
+            lblCantidadNumero.Text = "Cantidad de contactos registrados:" + vContador;
+            lblFechaHora.Text = "Fecha y hora de registro:" + vFecha;
+
         }
 
-        
-        
-
-        
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtContacto.Text = "";
+            mtbNumero.Text = "";
+        }
     }
 }

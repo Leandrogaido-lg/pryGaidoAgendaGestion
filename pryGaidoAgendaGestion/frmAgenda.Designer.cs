@@ -33,10 +33,10 @@
             lblNumero = new Label();
             mtbNumero = new MaskedTextBox();
             btnCancelar = new Button();
-            lstContacto = new ComboBox();
             lstResultado = new ListBox();
-            label1 = new Label();
-            label2 = new Label();
+            lblFechaHora = new Label();
+            lblCantidadNumero = new Label();
+            txtContacto = new TextBox();
             SuspendLayout();
             // 
             // btnRegistrar
@@ -74,7 +74,6 @@
             mtbNumero.Location = new Point(175, 74);
             mtbNumero.Mask = "(000)000-0000";
             mtbNumero.Name = "mtbNumero";
-            mtbNumero.PasswordChar = '#';
             mtbNumero.Size = new Size(102, 23);
             mtbNumero.TabIndex = 3;
             mtbNumero.TextChanged += mtbNumero_TextChanged;
@@ -87,56 +86,52 @@
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // lstContacto
-            // 
-            lstContacto.FormattingEnabled = true;
-            lstContacto.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
-            lstContacto.Location = new Point(175, 38);
-            lstContacto.Name = "lstContacto";
-            lstContacto.Size = new Size(102, 23);
-            lstContacto.TabIndex = 6;
-            lstContacto.TextChanged += lstContacto_TextChanged;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // lstResultado
             // 
             lstResultado.FormattingEnabled = true;
             lstResultado.ItemHeight = 15;
-            lstResultado.Location = new Point(12, 158);
+            lstResultado.Location = new Point(12, 165);
             lstResultado.Name = "lstResultado";
-            lstResultado.Size = new Size(184, 64);
+            lstResultado.Size = new Size(249, 79);
             lstResultado.TabIndex = 7;
-            
             // 
-            // label1
+            // lblFechaHora
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(292, 248);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Fecha y Hora";
-            
+            lblFechaHora.AutoSize = true;
+            lblFechaHora.Location = new Point(222, 254);
+            lblFechaHora.Name = "lblFechaHora";
+            lblFechaHora.Size = new Size(76, 15);
+            lblFechaHora.TabIndex = 8;
+            lblFechaHora.Text = "Fecha y Hora";
             // 
-            // label2
+            // lblCantidadNumero
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(0, 248);
-            label2.Name = "label2";
-            label2.Size = new Size(107, 15);
-            label2.TabIndex = 9;
-            label2.Text = "cantidad y numero";
-            
+            lblCantidadNumero.AutoSize = true;
+            lblCantidadNumero.Location = new Point(0, 248);
+            lblCantidadNumero.Name = "lblCantidadNumero";
+            lblCantidadNumero.Size = new Size(107, 15);
+            lblCantidadNumero.TabIndex = 9;
+            lblCantidadNumero.Text = "cantidad y numero";
+            // 
+            // txtContacto
+            // 
+            txtContacto.Location = new Point(175, 36);
+            txtContacto.Name = "txtContacto";
+            txtContacto.Size = new Size(100, 23);
+            txtContacto.TabIndex = 10;
+            txtContacto.TextChanged += txtContacto_TextChanged;
             // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(421, 272);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(463, 278);
+            Controls.Add(txtContacto);
+            Controls.Add(lblCantidadNumero);
+            Controls.Add(lblFechaHora);
             Controls.Add(lstResultado);
-            Controls.Add(lstContacto);
             Controls.Add(btnCancelar);
             Controls.Add(mtbNumero);
             Controls.Add(lblNumero);
@@ -155,9 +150,9 @@
         private Label lblNumero;
         private MaskedTextBox mtbNumero;
         private Button btnCancelar;
-        private ComboBox lstContacto;
         private ListBox lstResultado;
-        private Label label1;
-        private Label label2;
+        private Label lblFechaHora;
+        private Label lblCantidadNumero;
+        private TextBox txtContacto;
     }
 }
