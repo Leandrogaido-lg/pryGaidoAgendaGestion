@@ -37,11 +37,13 @@
             lblFechaHora = new Label();
             lblCantidadNumero = new Label();
             txtContacto = new TextBox();
+            lblTitulo = new Label();
             SuspendLayout();
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(283, 132);
+            btnRegistrar.Enabled = false;
+            btnRegistrar.Location = new Point(268, 138);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(75, 23);
             btnRegistrar.TabIndex = 0;
@@ -53,7 +55,7 @@
             // 
             lblContacto.AutoSize = true;
             lblContacto.Font = new Font("Segoe UI", 12F);
-            lblContacto.Location = new Point(97, 36);
+            lblContacto.Location = new Point(99, 61);
             lblContacto.Name = "lblContacto";
             lblContacto.Size = new Size(72, 21);
             lblContacto.TabIndex = 1;
@@ -63,7 +65,7 @@
             // 
             lblNumero.AutoSize = true;
             lblNumero.Font = new Font("Segoe UI", 12F);
-            lblNumero.Location = new Point(101, 72);
+            lblNumero.Location = new Point(99, 95);
             lblNumero.Name = "lblNumero";
             lblNumero.Size = new Size(68, 21);
             lblNumero.TabIndex = 2;
@@ -71,16 +73,18 @@
             // 
             // mtbNumero
             // 
-            mtbNumero.Location = new Point(175, 74);
-            mtbNumero.Mask = "(000)000-0000";
+            mtbNumero.Enabled = false;
+            mtbNumero.Location = new Point(177, 95);
+            mtbNumero.Mask = "(351)000-0000";
             mtbNumero.Name = "mtbNumero";
-            mtbNumero.Size = new Size(102, 23);
+            mtbNumero.Size = new Size(100, 23);
             mtbNumero.TabIndex = 3;
+            mtbNumero.MaskInputRejected += mtbNumero_MaskInputRejected;
             mtbNumero.TextChanged += mtbNumero_TextChanged;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(202, 132);
+            btnCancelar.Location = new Point(187, 138);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 5;
@@ -109,7 +113,7 @@
             // lblCantidadNumero
             // 
             lblCantidadNumero.AutoSize = true;
-            lblCantidadNumero.Location = new Point(0, 248);
+            lblCantidadNumero.Location = new Point(-1, 254);
             lblCantidadNumero.Name = "lblCantidadNumero";
             lblCantidadNumero.Size = new Size(107, 15);
             lblCantidadNumero.TabIndex = 9;
@@ -117,17 +121,28 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(175, 36);
+            txtContacto.Location = new Point(177, 61);
             txtContacto.Name = "txtContacto";
             txtContacto.Size = new Size(100, 23);
             txtContacto.TabIndex = 10;
             txtContacto.TextChanged += txtContacto_TextChanged;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 16F);
+            lblTitulo.Location = new Point(88, 9);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(291, 30);
+            lblTitulo.TabIndex = 11;
+            lblTitulo.Text = "Gestion Agenda de Contacto";
             // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(463, 278);
+            Controls.Add(lblTitulo);
             Controls.Add(txtContacto);
             Controls.Add(lblCantidadNumero);
             Controls.Add(lblFechaHora);
@@ -139,6 +154,7 @@
             Controls.Add(btnRegistrar);
             Name = "frmAgenda";
             Text = "Agenda de Gestion de Contacto";
+            Load += frmAgenda_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -154,5 +170,6 @@
         private Label lblFechaHora;
         private Label lblCantidadNumero;
         private TextBox txtContacto;
+        private Label lblTitulo;
     }
 }

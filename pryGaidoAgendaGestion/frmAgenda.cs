@@ -46,11 +46,28 @@ namespace pryGaidoAgendaGestion
             lblFechaHora.Text = "Fecha y hora de registro:" + vFecha;
 
         }
-
+        private void LimpiarControles()
+        {
+            txtContacto.Clear();
+            mtbNumero.Clear();
+            txtContacto.Focus();
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtContacto.Text = "";
-            mtbNumero.Text = "";
+            
+            LimpiarControles();
         }
+
+        private void frmAgenda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtbNumero_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        
     }
 }
